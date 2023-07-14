@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Users List</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Users List</h1>
+      <table class="table table-bordered table-hover text-center">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Passwd</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users.items %}
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.passwd }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="text-center">
+        <ul class="pagination">
+          {% if users.has_prev %}
+          <li><a href="{{ url_for('index', page=users.prev_num) }}">Previous</a></li>
+          {% else %}
+          <li class="disabled"><span>Previous</span></li>
+          {% endif %}
+          {% for page in users.iter_pages() %}
+          {% if page %}
+          {% if page != users.page %}
+          <li><a href="{{ url_for('index', page=page) }}">{{ page }}</a></li>
+          {% else %}
+          <li class="active"><span>{{ page }}</span></li>
+          {% endif %}
+          {% else %}
+          <li class="disabled"><span>...</span></li>
+          {% endif %}
+          {% endfor %}
+          {% if users.has_next %}
+          <li><a href="{{ url_for('index', page=users.next_num) }}">Next</a></li>
+          {% else %}
+          <li class="disabled"><span>Next</span></li>
+          {% endif %}
+        </ul>
+      </div>
+      <form method="POST" action="{{ url_for('submit') }}">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="passwd">Passwd:</label>
+          <input type="number" class="form-control" id="passwd" name="passwd">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+

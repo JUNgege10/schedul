@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>diwk</title>
+</head>
+<body >
+<fieldset>
+<table style="background:url('static/images/bg.jpg')"  width="1400" height="950">
+ <tr height="50">
+ <td width="500px"> </td>
+ <td> </td>
+ </tr>
+ <tr>
+<td> </td>
+<td><table>
+<form method ="POST" action="http://localhost:5000/admin.html?login=%B5%C7%C2%BC" name="frmLogin"  >
+ <tr>
+ <td>用户名：</td>
+ <td><input type="text" name="username" value="Your name" size="20" maxlength="20" οnfοcus="if (this.value=='Your name')  this.value='';" /></td>
+ <td > </td>
+ <td> </td>
+ </tr>
+ <tr>
+ <td>真实姓名：</td>
+ <td><input type="text" name="rusername" value="Your rname" size="20" maxlength="20" οnfοcus="if (this.value=='Your rname')  this.value='';" /></td>
+ <td > </td>
+ <td> </td>
+ </tr>
+ <tr>
+ <td>密  码：</td>
+ <td><input type="password" name="password" value="Your password" size="20" maxlength="20" οnfοcus="if (this.value=='Your password')  this.value='';" /></td>
+ <td> </td>
+ <td> </td>
+ </tr>
+ <td>确认密码：</td>
+ <td><input type="password" name="rpassword" value="again rpassword" size="20" maxlength="20" οnfοcus="if (this.value=='again rpassword')  this.value='';" /></td>
+ <td> </td>
+ <td> </td>
+ </tr>
+ </tr>
+ <td>出生日期：</td>
+ <td><input type="text" name="dates" value="Your dates" size="20" maxlength="20" οnfοcus="if (this.value=='Your dates')  this.value='';" /></td>
+ <td> </td>
+ <td> </td>
+ </tr>
+ </tr>
+ <td>Email：</td>
+ <td><input type="text" name="Email" value="Your Email" size="20" maxlength="20" οnfοcus="if (this.value=='Your Email')  this.value='';" /></td>
+ <td> </td>
+ <td> </td>
+ </tr>
+ <tr>
+  <td><input type="submit" name="login" value="提交" onClick="return validateLogin()"/></td>
+  <td><input type="reset" name="rs" value="重置"></td>
+  <td><input type="button" name="button" value="取消" οnclick="location.href='http://localhost:5000/registrys'"></td>
+  </tr>
+ </table>
+ </td>
+  <tr>
+  <td> </td>
+  <td><table>
+ </tr>
+ </table>
+ </td>
+ </table>
+</fieldset>
+</form>
+<script language="javascript">
+  function validateLogin(){
+    var sUserName = document.frmLogin.username.value ;
+    var rUserName = document.frmLogin.rusername.value ;
+    var sPassword = document.frmLogin.password.value ;
+    var rPassword = document.frmLogin.rpassword.value ;
+    var sDates = document.frmLogin.dates.value ;
+    var sEmail = document.frmLogin.email.value ;
+    if ((sUserName =="") || (sUserName=="Your name")){
+     alert("请输入用户名!");
+     return false ;
+    }
+    if ((rUserName =="") || (sUserName=="Your rname")){
+     alert("请输入真实姓名!");
+     return false ;
+    }
+
+    if ((sPassword =="") || (sPassword=="Your password")){
+     alert("请输入密码!");
+     return false ;
+    }
+    if ((rPassword =="") || (sPassword=="Your rpassword")){
+     alert("请确认密码是否一致!");
+     return false ;
+    }
+
+    if ((sDates =="") || (sinputCode=="Your dates")){
+        alert("请输入出生日期!");
+        return false ;
+       }
+     if ((sEmail =="") || (sinputCode=="Your Email")){
+        alert("请输入邮箱地址!");
+        return false ;
+       }
+   }
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+  {
+    "username": "guwj",
+    "password": "wifi@12345",
+    "role": "admin"
+  },
+  {
+    "username": "zhangzh",
+    "password": "wifi@123",
+    "role": "cmdb"
+  },
+  {
+    "username": "lusc",
+    "password": "wifi@123",
+    "role": "cmdb,guest"
+  }
+]

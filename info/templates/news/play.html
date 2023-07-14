@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>diwk</title>
+<fieldset>
+<table style="background:url('static/images/head.jpg');background-repeat:no-repeat;background-size:cover"  width="1400" height="275">
+ <tr height="100">
+ <td width="10px"> </td>
+ <td> <script>
+    var i=0;
+    function myDate(){
+        var now=new Date();
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var day=now.getDate();
+        var hours=now.getHours();
+        var minutes=now.getMinutes();
+        var seconds=now.getSeconds();
+
+        document.getElementById("div").innerHTML=year+"年"+month+"月"+day+"日"+hours+"："+minutes+"："+seconds;
+    }
+    setInterval(myDate,1000);
+</script>
+</head>
+<body>
+<p align="center">diwk 欢迎您的光临！！！当前时间：<h2 id="div"></h2> </p>
+</body></td>
+ </tr>
+</table>
+</fieldset>
+</html>

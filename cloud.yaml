@@ -1,0 +1,77 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    description: BHCDJJSNJ743-23456
+  labels: null
+  name: guwj02
+  namespace: it-dev
+spec:
+  backoffLimit: 0
+  completions: 1
+  parallelism: 1
+  template:
+    metadata:
+      annotations:
+        cri.cci.io/container-type: secure-container
+      name: guwj02
+    spec:
+      activeDeadlineSeconds: 28800
+      containers:
+      - command:
+        - bash
+        - -c
+        - python manager.py runserver
+        env:
+        - name: SCC_CALLBACK
+          value: HELLO
+        - name: SCC_OBS_ROOT
+          value: /opt/cni
+        image: harbor.internal.zenmen.com/basis/guwj02:v1
+        lifecycle: Always
+        name: container-0
+        resources:
+          limits:
+            cpu: '4'
+            memory: 8Gi
+          requests:
+            cpu: '4'
+            memory: 8Gi
+        volumeMounts:
+        - mountPath: /data
+          name: cci-sfs-import-databasetest
+        - mountPath: /data2
+          name: cci-sfs-import-data2
+        - mountPath: /home
+          name: cci-sfs-import-home
+        - mountPath: /root
+          name: cci-sfs-import-root
+        - mountPath: /public/scrna
+          name: cci-sfs-import-scrna-works
+        workingDir: /data/app
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: imagepull-secret
+      priority: 30
+      restartPolicy: Never
+      schedulerName: default-scheduler
+      securityContext:
+        runAsGroup: 1
+        runAsUser: 1
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: cci-sfs-import-databasetest
+        persistentVolumeClaim:
+          claimName: cci-sfs-import-databasetest
+      - name: cci-sfs-import-data2
+        persistentVolumeClaim:
+          claimName: cci-sfs-import-data2
+      - name: cci-sfs-import-home
+        persistentVolumeClaim:
+          claimName: cci-sfs-import-home
+      - name: cci-sfs-import-root
+        persistentVolumeClaim:
+          claimName: cci-sfs-import-root
+      - name: cci-sfs-import-scrna-works
+        persistentVolumeClaim:
+          claimName: cci-sfs-import-scrna-works
