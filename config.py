@@ -4,7 +4,7 @@ import pymongo
 import pymysql
 
 class Config(object):
-    SECRET_KEY = "EjpNVSNQTyGi1VvWECj9TvC/+kq3oujee2kTfQUs8yCM6xX9Yjq52v54g+HVoknA"
+    SECRET_KEY = "ncjdnjcnjdk"
     DEBUG = True
     #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:ouyi12345@127.0.0.1:3306/ouyi_project'
     SQLALCHEMY_DATABASE_URI = 'mysql://root:ouyi12345@127.0.0.1:3306/ouyi_project'
